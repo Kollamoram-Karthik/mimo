@@ -1,0 +1,13 @@
+CC=gcc -O
+
+OBJECTS1=mimomain.o
+OBJECTS2=mimopre.o mimomap.o mimoinit.o mimock.o
+OBJECTS3=mimosim.o mimosym.o
+OBJECTS4=mimoutil.o mimopost.o
+OBJECTS=$(OBJECTS1) $(OBJECTS2) $(OBJECTS3) $(OBJECTS4)
+mimo:$(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -lm -o mimo
+$(OBJECTS1):mimotype.h mimoglob.h mimofunctions.h
+$(OBJECTS2):mimotype.h mimoext.h mimofunctions.h
+$(OBJECTS3):mimotype.h mimoext.h mimofunctions.h
+$(OBJECTS4):mimotype.h mimoext.h mimofunctions.h

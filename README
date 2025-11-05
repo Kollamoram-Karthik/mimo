@@ -1,0 +1,89 @@
+/******************************************************************************/
+/*   Copyright (C) 2014 K. Vasudevan. Indian Institute of Technology Kanpur.  */
+/*   All Rights Reserved.                                                     */
+/******************************************************************************/
+/******************************************************************************/
+/* Coherent detection in Rayleigh flat fading channels. MIMO systems.
+/******************************************************************************/
+
+This is a C code for coherent detection of M-ary constellations in fading
+channels.
+
+Operating system required:
+--------------------------
+Linux.
+
+Brief description of various files:
+-----------------------------------
+
+mimomake        : Required to compile the code.
+                  Input: All the source files.
+                  Output: Executable file called "mimo".
+mimotype.h      : Contains all the definitions.
+mimoglob.h      : All the global variables are defined here. This file is to
+                  be included in the file containing "main()".
+mimoext.h       : Same as "mimoglob.h". This file is to be included in all
+                  the other C files.
+mimofunctions.h : Function declarations.
+mimomain.c      : Contains "main()".
+mimopre.c       : Pre-precessor routines.
+mimock.c        : Checks for errors in the definitions.
+mimoinit.c      : Initialization routines.
+mimoutil.c      : Utility routines like Gaussian noise generation.
+mimosim.c       : Simulation routines.
+mimosym.c       : Symbol generation routines.
+mimomap.c       : Maps bits to symbols.
+mimopost.c      : Post-processor.
+
+This code uses some built-in functions like "random()", "erand48()".
+You can know more about these functions by typing the following at the
+command prompt:
+
+man erand48
+
+"man" denotes manual pages.
+
+Compiling and running the code:
+-------------------------------
+
+To compile the code type the following in the command prompt:
+
+make -f mimomake
+
+The executable file called "mimo" will be created.
+
+To run the code type:
+
+time mimo > tmp &
+
+The "time" command tells how much time the code
+takes to run. "mimo" is the executable file.
+"> tmp" redirects the output to a file called "tmp".
+"&" is used to run the program in the background.
+
+Related files:
+--------------
+
+mimotheory.c:     C code to generate the theoretical performance curves for
+                  coherent detection of M-ary constellations in Rayleigh
+                  fading channels. Error rate of the symbol vectors is
+                  computed. To compile this file, give the following command
+                  at the command prompt:
+                  gcc -O mimotheory.c -lm -o executable-filename<RETURN>
+
+mimotheory_ser.c: C code to generate the theoretical performance curves for
+                  coherent detection of M-ary constellations in Rayleigh
+                  fading channels. Symbol error rate (SER) is
+                  computed. To compile this file, give the following command
+                  at the command prompt:
+                  gcc -O mimotheory_ser.c -lm -o executable-filename<RETURN>
+Subdirectories:
+---------------
+
+mimodata    : Contains all the data files suffixed by ".dat" and
+              gnuplot files suffixed by ".gp". To run gnuplot, type:
+              gnuplot<RETURN> in the command prompt.
+
+              For help in gnuplot type the following in the gnuplot
+              prompt:
+              help<RETURN>
