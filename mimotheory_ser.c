@@ -14,17 +14,20 @@
 #define PSK8 1
 #define BPSK 2
 #define QPSK 3
-#define CONSTELL QAM16
+/****** MODIFICATION START: Added 8-QAM support (Nov 2025) *******************/
+#define QAM8 4
+/****** MODIFICATION END ******************************************************/
+#define CONSTELL QAM8
 #define MIN_SNR 5.0
-#define MAX_SNR 35.5
-#define STEP 0.5
+#define MAX_SNR 31.0
+#define STEP 2.5
 #define ONE 1
 #define ZERO 0
-#define CONSTELL_SIZE 16
-#define BITS_PER_SYM 4
-#define NUM_TX 2                                 /* No. of transmit antennas. */
-#define NUM_RX 2                                  /* No. of receive antennas. */
-#define NUM_VEC 256                                  /* CONSTELL_SIZE^NUM_TX. */
+#define CONSTELL_SIZE 8
+#define BITS_PER_SYM 3
+#define NUM_TX 2
+#define NUM_RX 2
+#define NUM_VEC 64
 /******************************************************************************/
 FILE *fp,*fp2;
 double Snr;                                                     /* SNR in dB. */
@@ -52,6 +55,8 @@ int Ck_Num_Vec(void);
 int Error_Mes(int num);
 int Get_Re_16_QAM_Map(void);
 int Get_Im_16_QAM_Map(void);
+int Get_Re_8_QAM_Map(void);
+int Get_Im_8_QAM_Map(void);
 int Get_PSK_Map(void);
 int Decimal_to_M_ary(int num,int *array,int array_size,int m_ary);
 int Update_Pe_Avg(double gamma);
@@ -101,6 +106,10 @@ int Ck_Constell_Number()
   Error_Mes(2);
  else if((CONSTELL == QAM16) && (CONSTELL_SIZE != 16))
   Error_Mes(2);
+ /****** MODIFICATION START: Added 8-QAM validation (Nov 2025) *************/
+ else if((CONSTELL == QAM8) && (CONSTELL_SIZE != 8))
+  Error_Mes(2);
+ /****** MODIFICATION END **************************************************/
  else if((CONSTELL == PSK8) && (CONSTELL_SIZE != 8))
   Error_Mes(2);
  else if((CONSTELL == QPSK) && (CONSTELL_SIZE != 4))
@@ -130,6 +139,13 @@ int Get_Map()
   Get_Re_16_QAM_Map();
   Get_Im_16_QAM_Map();
  }
+/****** MODIFICATION START: Added QAM8 case handling (Nov 2025) **************/
+ else if(CONSTELL == QAM8)
+ {
+  Get_Re_8_QAM_Map();
+  Get_Im_8_QAM_Map();
+ }
+/****** MODIFICATION END ******************************************************/
  else if((CONSTELL == PSK8) || (CONSTELL == BPSK) || (CONSTELL == QPSK))
   Get_PSK_Map();
  return(0);
@@ -180,6 +196,40 @@ int Get_Im_16_QAM_Map()
  Im_Map[15]= -1.0;
  return(0);
 }
+/****** MODIFICATION START: Added 8-QAM mapping functions (Nov 2025) *********/
+/******************************************************************************/
+/*                     Get the 8QAM mapping -- real part.                     */
+/*                     Cross constellation with d_min^2 = 4                   */
+/******************************************************************************/
+int Get_Re_8_QAM_Map()
+{
+ Re_Map[0]=   1.0;
+ Re_Map[1]=   1.0;
+ Re_Map[2]=  -1.0;
+ Re_Map[3]=  -1.0;
+ Re_Map[4]=   1.0 + sqrt(3.0);
+ Re_Map[5]=   0.0;
+ Re_Map[6]=  -1.0 - sqrt(3.0);
+ Re_Map[7]=   0.0;
+ return(0);
+}
+/******************************************************************************/
+/*                   Get the 8QAM mapping -- imaginary part.                  */
+/*                   Cross constellation with d_min^2 = 4                     */
+/******************************************************************************/
+int Get_Im_8_QAM_Map()
+{
+ Im_Map[0]=   1.0;
+ Im_Map[1]=  -1.0;
+ Im_Map[2]=   1.0;
+ Im_Map[3]=  -1.0;
+ Im_Map[4]=   0.0;
+ Im_Map[5]=   1.0 + sqrt(3.0);
+ Im_Map[6]=   0.0;
+ Im_Map[7]=  -1.0 - sqrt(3.0);
+ return(0);
+}
+/****** MODIFICATION END ******************************************************/
 /******************************************************************************/
 /*               Get the PSK constellation. Gray coding not done.
 *******************************************************************************/
@@ -220,6 +270,16 @@ int Open_File()
   fp=fopen("mimodata/qam16r1t2thser.dat","w");
  else if((CONSTELL == QAM16) && (NUM_RX == 2) && (NUM_TX == 2))
   fp=fopen("mimodata/qam16r2t2thser.dat","w");
+ /****** MODIFICATION START: Added 8-QAM file output cases (Nov 2025) *******/
+ else if((CONSTELL == QAM8) && (NUM_RX == 1) && (NUM_TX == 1))
+  fp=fopen("mimodata/qam8r1t1thser.dat","w");
+ else if((CONSTELL == QAM8) && (NUM_RX == 2) && (NUM_TX == 1))
+  fp=fopen("mimodata/qam8r2t1thser.dat","w");
+ else if((CONSTELL == QAM8) && (NUM_RX == 1) && (NUM_TX == 2))
+  fp=fopen("mimodata/qam8r1t2thser.dat","w");
+ else if((CONSTELL == QAM8) && (NUM_RX == 2) && (NUM_TX == 2))
+  fp=fopen("mimodata/qam8r2t2thser.dat","w");
+ /****** MODIFICATION END **************************************************/
  else if((CONSTELL == PSK8) && (NUM_RX == 1) && (NUM_TX == 1))
   fp=fopen("mimodata/psk8r1t1thser.dat","w");
  else if((CONSTELL == PSK8) && (NUM_RX == 2) && (NUM_TX == 1))
@@ -267,6 +327,16 @@ int Open_Chernoff()
   fp2=fopen("mimodata/qam16r1t2chser.dat","w");
  else if((CONSTELL == QAM16) && (NUM_RX == 2) && (NUM_TX == 2))
   fp2=fopen("mimodata/qam16r2t2chser.dat","w");
+ /****** MODIFICATION START: Added 8-QAM Chernoff file output cases (Nov 2025) *******/
+ else if((CONSTELL == QAM8) && (NUM_RX == 1) && (NUM_TX == 1))
+  fp2=fopen("mimodata/qam8r1t1chser.dat","w");
+ else if((CONSTELL == QAM8) && (NUM_RX == 2) && (NUM_TX == 1))
+  fp2=fopen("mimodata/qam8r2t1chser.dat","w");
+ else if((CONSTELL == QAM8) && (NUM_RX == 1) && (NUM_TX == 2))
+  fp2=fopen("mimodata/qam8r1t2chser.dat","w");
+ else if((CONSTELL == QAM8) && (NUM_RX == 2) && (NUM_TX == 2))
+  fp2=fopen("mimodata/qam8r2t2chser.dat","w");
+ /****** MODIFICATION END ********************************************************/
  else if((CONSTELL == PSK8) && (NUM_RX == 1) && (NUM_TX == 1))
   fp2=fopen("mimodata/psk8r1t1chser.dat","w");
  else if((CONSTELL == PSK8) && (NUM_RX == 2) && (NUM_TX == 1))

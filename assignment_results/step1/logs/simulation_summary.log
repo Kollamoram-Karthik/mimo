@@ -1,0 +1,23 @@
+MIMO Simulation Summary - Step 1
+Date: Wed Nov  5 12:20:59 IST 2025
+Configuration: 16-QAM, Nr=2, Nt=2
+SNR Range: 5.0 to 35.0 dB (step: 2.5 dB)
+═══════════════════════════════════════════════════════════
+
+SNR 5.0 dB: SER = 0.3836931350 ✓
+SNR 7.5 dB: SER = 0.2492450750 ✓
+SNR 10.0 dB: SER = 0.1380384600 ✓
+SNR 12.5 dB: SER = 0.0654309350 ✓
+SNR 15.0 dB: SER = 0.0271656000 ✓
+SNR 17.5 dB: SER = 0.0101848250 ✓
+SNR 20.0 dB: SER = 0.0035617400 ✓
+SNR 22.5 dB: SER = 0.0011861350 ✓
+SNR 25.0 dB: SER = 0.0003847300 ✓
+SNR 27.5 dB: SER = 0.0001230700 ✓
+SNR 30.0 dB: SER = 0.0000391900 ✓
+SNR 32.5 dB: SER = 0.0000122150 ✓
+SNR 35.0 dB: SER = 0.0000036000 ✓
+
+═══════════════════════════════════════════════════════════
+Summary: 13/13 simulations successful
+Results saved to: assignment_results/step1/simulation_data/qam16r2t2simser.dat

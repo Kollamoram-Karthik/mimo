@@ -37,6 +37,10 @@ int Ck_Constell_Number()
   Error_Mes(2);
  else if((CONSTELL == QAM16) && (CONSTELL_SIZE != 16))
   Error_Mes(2);
+/****** MODIFICATION START: Added QAM8 validation (Nov 2025) *****************/
+ else if((CONSTELL == QAM8) && (CONSTELL_SIZE != 8))
+  Error_Mes(2);
+/****** MODIFICATION END ******************************************************/
  else if((CONSTELL == PSK8) && (CONSTELL_SIZE != 8))
   Error_Mes(2);
  else if((CONSTELL == QPSK) && (CONSTELL_SIZE != 4))

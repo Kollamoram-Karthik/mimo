@@ -10,8 +10,8 @@ int Post_Processor()
 {
  printf("\t SER: %12.10lf.\n\n",(double)Ser/((double)(Vec_Cnt*NUM_TX)));
  printf("\t No. of vector errors is: %d.\n\n",Vec_Ser);
- printf("\t Vectors transmitted:%d\n\n",Vec_Cnt);
- printf("\t Symbols transmitted:%d\n\n",Vec_Cnt*NUM_TX);
+ printf("\t Vectors transmitted:%ld\n\n",Vec_Cnt);
+ printf("\t Symbols transmitted:%ld\n\n",Vec_Cnt*NUM_TX);
  Power=Power/(double)(Vec_Cnt*NUM_RX);
  printf("\t Avg. transmit power after fade is: %lf.\n\n",Power);
  return(0);

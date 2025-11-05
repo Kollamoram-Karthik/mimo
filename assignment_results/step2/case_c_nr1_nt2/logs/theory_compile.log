@@ -1,0 +1,97 @@
+mimotheory_ser.c:166:2: warning: array index 8 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  166 |  Re_Map[8]=  -1.0;
+      |  ^      ~
+mimotheory_ser.c:39:1: note: array 'Re_Map' declared here
+   39 | double Re_Map[CONSTELL_SIZE];                                     /* Re. map. */
+      | ^
+mimotheory_ser.c:167:2: warning: array index 9 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  167 |  Re_Map[9]=  -3.0;
+      |  ^      ~
+mimotheory_ser.c:39:1: note: array 'Re_Map' declared here
+   39 | double Re_Map[CONSTELL_SIZE];                                     /* Re. map. */
+      | ^
+mimotheory_ser.c:168:2: warning: array index 10 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  168 |  Re_Map[10]= -3.0;
+      |  ^      ~~
+mimotheory_ser.c:39:1: note: array 'Re_Map' declared here
+   39 | double Re_Map[CONSTELL_SIZE];                                     /* Re. map. */
+      | ^
+mimotheory_ser.c:169:2: warning: array index 11 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  169 |  Re_Map[11]= -1.0;
+      |  ^      ~~
+mimotheory_ser.c:39:1: note: array 'Re_Map' declared here
+   39 | double Re_Map[CONSTELL_SIZE];                                     /* Re. map. */
+      | ^
+mimotheory_ser.c:170:2: warning: array index 12 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  170 |  Re_Map[12]=  1.0;
+      |  ^      ~~
+mimotheory_ser.c:39:1: note: array 'Re_Map' declared here
+   39 | double Re_Map[CONSTELL_SIZE];                                     /* Re. map. */
+      | ^
+mimotheory_ser.c:171:2: warning: array index 13 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  171 |  Re_Map[13]=  1.0;
+      |  ^      ~~
+mimotheory_ser.c:39:1: note: array 'Re_Map' declared here
+   39 | double Re_Map[CONSTELL_SIZE];                                     /* Re. map. */
+      | ^
+mimotheory_ser.c:172:2: warning: array index 14 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  172 |  Re_Map[14]=  3.0;
+      |  ^      ~~
+mimotheory_ser.c:39:1: note: array 'Re_Map' declared here
+   39 | double Re_Map[CONSTELL_SIZE];                                     /* Re. map. */
+      | ^
+mimotheory_ser.c:173:2: warning: array index 15 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  173 |  Re_Map[15]=  3.0;
+      |  ^      ~~
+mimotheory_ser.c:39:1: note: array 'Re_Map' declared here
+   39 | double Re_Map[CONSTELL_SIZE];                                     /* Re. map. */
+      | ^
+mimotheory_ser.c:189:2: warning: array index 8 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  189 |  Im_Map[8]=  -1.0;
+      |  ^      ~
+mimotheory_ser.c:40:1: note: array 'Im_Map' declared here
+   40 | double Im_Map[CONSTELL_SIZE];                                     /* Im. map. */
+      | ^
+mimotheory_ser.c:190:2: warning: array index 9 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  190 |  Im_Map[9]=  -1.0;
+      |  ^      ~
+mimotheory_ser.c:40:1: note: array 'Im_Map' declared here
+   40 | double Im_Map[CONSTELL_SIZE];                                     /* Im. map. */
+      | ^
+mimotheory_ser.c:191:2: warning: array index 10 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  191 |  Im_Map[10]= -3.0;
+      |  ^      ~~
+mimotheory_ser.c:40:1: note: array 'Im_Map' declared here
+   40 | double Im_Map[CONSTELL_SIZE];                                     /* Im. map. */
+      | ^
+mimotheory_ser.c:192:2: warning: array index 11 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  192 |  Im_Map[11]= -3.0;
+      |  ^      ~~
+mimotheory_ser.c:40:1: note: array 'Im_Map' declared here
+   40 | double Im_Map[CONSTELL_SIZE];                                     /* Im. map. */
+      | ^
+mimotheory_ser.c:193:2: warning: array index 12 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  193 |  Im_Map[12]= -1.0;
+      |  ^      ~~
+mimotheory_ser.c:40:1: note: array 'Im_Map' declared here
+   40 | double Im_Map[CONSTELL_SIZE];                                     /* Im. map. */
+      | ^
+mimotheory_ser.c:194:2: warning: array index 13 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  194 |  Im_Map[13]= -3.0;
+      |  ^      ~~
+mimotheory_ser.c:40:1: note: array 'Im_Map' declared here
+   40 | double Im_Map[CONSTELL_SIZE];                                     /* Im. map. */
+      | ^
+mimotheory_ser.c:195:2: warning: array index 14 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  195 |  Im_Map[14]= -3.0;
+      |  ^      ~~
+mimotheory_ser.c:40:1: note: array 'Im_Map' declared here
+   40 | double Im_Map[CONSTELL_SIZE];                                     /* Im. map. */
+      | ^
+mimotheory_ser.c:196:2: warning: array index 15 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+  196 |  Im_Map[15]= -1.0;
+      |  ^      ~~
+mimotheory_ser.c:40:1: note: array 'Im_Map' declared here
+   40 | double Im_Map[CONSTELL_SIZE];                                     /* Im. map. */
+      | ^
+16 warnings generated.

@@ -1,0 +1,27 @@
+	 Preprocessor...
+
+	 Inx:  0 Re:+1.000000 Im:+1.000000
+	 Inx:  1 Re:+1.000000 Im:-1.000000
+	 Inx:  2 Re:-1.000000 Im:+1.000000
+	 Inx:  3 Re:-1.000000 Im:-1.000000
+	 Inx:  4 Re:+2.732051 Im:+0.000000
+	 Inx:  5 Re:+0.000000 Im:+2.732051
+	 Inx:  6 Re:-2.732051 Im:+0.000000
+	 Inx:  7 Re:+0.000000 Im:-2.732051
+
+	 Noise variance:0.000789.
+
+	 Simulation...
+
+	 Postprocessor...
+
+	 SER: 0.0009141800.
+
+	 No. of vector errors is: 91418.
+
+	 Vectors transmitted:100000000
+
+	 Symbols transmitted:100000000
+
+	 Avg. transmit power after fade is: 4.731722.
+

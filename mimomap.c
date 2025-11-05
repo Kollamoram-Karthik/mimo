@@ -15,6 +15,13 @@ int Get_Map()
   Re_16_QAM();
   Im_16_QAM();
  }
+/****** MODIFICATION START: Added QAM8 case handling (Nov 2025) **************/
+ else if(CONSTELL == QAM8)
+ {
+  Re_8_QAM();
+  Im_8_QAM();
+ }
+/****** MODIFICATION END ******************************************************/
  else if((CONSTELL == PSK8) || (CONSTELL == BPSK) || (CONSTELL == QPSK))
   Get_PSK_Map();
  Print_Map();
@@ -66,6 +73,40 @@ int Im_16_QAM()
  Im_Map[15]= -1.0;
  return(0);
 }
+/****** MODIFICATION START: Added 8-QAM constellation functions (Nov 2025) ***/
+/******************************************************************************/
+/*              Get the real parts of the 8-QAM constellation.               */
+/*              Cross constellation with minimum squared Euclidean distance = 4 */
+/******************************************************************************/
+int Re_8_QAM()
+{
+ Re_Map[0]=   1.0;
+ Re_Map[1]=   1.0;
+ Re_Map[2]=  -1.0;
+ Re_Map[3]=  -1.0;
+ Re_Map[4]=   1.0 + sqrt(3.0);
+ Re_Map[5]=   0.0;
+ Re_Map[6]=  -1.0 - sqrt(3.0);
+ Re_Map[7]=   0.0;
+ return(0);
+}
+/******************************************************************************/
+/*             Get the imaginary parts of the 8-QAM constellation.            */
+/*             Cross constellation with minimum squared Euclidean distance = 4 */
+/******************************************************************************/
+int Im_8_QAM()
+{
+ Im_Map[0]=   1.0;
+ Im_Map[1]=  -1.0;
+ Im_Map[2]=   1.0;
+ Im_Map[3]=  -1.0;
+ Im_Map[4]=   0.0;
+ Im_Map[5]=   1.0 + sqrt(3.0);
+ Im_Map[6]=   0.0;
+ Im_Map[7]=  -1.0 - sqrt(3.0);
+ return(0);
+}
+/****** MODIFICATION END ******************************************************/
 /******************************************************************************/
 /*               Get the PSK constellation. Gray coding not done.
 *******************************************************************************/

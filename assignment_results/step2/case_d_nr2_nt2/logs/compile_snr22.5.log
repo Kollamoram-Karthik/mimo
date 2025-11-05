@@ -1,0 +1,107 @@
+gcc -O    -c -o mimomain.o mimomain.c
+gcc -O    -c -o mimopre.o mimopre.c
+gcc -O    -c -o mimomap.o mimomap.c
+mimomap.c:43:2: warning: array index 8 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   43 |  Re_Map[8]=  -1.0;
+      |  ^      ~
+./mimoext.h:21:1: note: array 'Re_Map' declared here
+   21 | extern double Re_Map[CONSTELL_SIZE];                  /* Re. part of symbols. */
+      | ^
+mimomap.c:44:2: warning: array index 9 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   44 |  Re_Map[9]=  -3.0;
+      |  ^      ~
+./mimoext.h:21:1: note: array 'Re_Map' declared here
+   21 | extern double Re_Map[CONSTELL_SIZE];                  /* Re. part of symbols. */
+      | ^
+mimomap.c:45:2: warning: array index 10 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   45 |  Re_Map[10]= -3.0;
+      |  ^      ~~
+./mimoext.h:21:1: note: array 'Re_Map' declared here
+   21 | extern double Re_Map[CONSTELL_SIZE];                  /* Re. part of symbols. */
+      | ^
+mimomap.c:46:2: warning: array index 11 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   46 |  Re_Map[11]= -1.0;
+      |  ^      ~~
+./mimoext.h:21:1: note: array 'Re_Map' declared here
+   21 | extern double Re_Map[CONSTELL_SIZE];                  /* Re. part of symbols. */
+      | ^
+mimomap.c:47:2: warning: array index 12 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   47 |  Re_Map[12]=  1.0;
+      |  ^      ~~
+./mimoext.h:21:1: note: array 'Re_Map' declared here
+   21 | extern double Re_Map[CONSTELL_SIZE];                  /* Re. part of symbols. */
+      | ^
+mimomap.c:48:2: warning: array index 13 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   48 |  Re_Map[13]=  1.0;
+      |  ^      ~~
+./mimoext.h:21:1: note: array 'Re_Map' declared here
+   21 | extern double Re_Map[CONSTELL_SIZE];                  /* Re. part of symbols. */
+      | ^
+mimomap.c:49:2: warning: array index 14 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   49 |  Re_Map[14]=  3.0;
+      |  ^      ~~
+./mimoext.h:21:1: note: array 'Re_Map' declared here
+   21 | extern double Re_Map[CONSTELL_SIZE];                  /* Re. part of symbols. */
+      | ^
+mimomap.c:50:2: warning: array index 15 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   50 |  Re_Map[15]=  3.0;
+      |  ^      ~~
+./mimoext.h:21:1: note: array 'Re_Map' declared here
+   21 | extern double Re_Map[CONSTELL_SIZE];                  /* Re. part of symbols. */
+      | ^
+mimomap.c:66:2: warning: array index 8 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   66 |  Im_Map[8]=  -1.0;
+      |  ^      ~
+./mimoext.h:22:1: note: array 'Im_Map' declared here
+   22 | extern double Im_Map[CONSTELL_SIZE];                  /* Im. part of symbols. */
+      | ^
+mimomap.c:67:2: warning: array index 9 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   67 |  Im_Map[9]=  -1.0;
+      |  ^      ~
+./mimoext.h:22:1: note: array 'Im_Map' declared here
+   22 | extern double Im_Map[CONSTELL_SIZE];                  /* Im. part of symbols. */
+      | ^
+mimomap.c:68:2: warning: array index 10 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   68 |  Im_Map[10]= -3.0;
+      |  ^      ~~
+./mimoext.h:22:1: note: array 'Im_Map' declared here
+   22 | extern double Im_Map[CONSTELL_SIZE];                  /* Im. part of symbols. */
+      | ^
+mimomap.c:69:2: warning: array index 11 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   69 |  Im_Map[11]= -3.0;
+      |  ^      ~~
+./mimoext.h:22:1: note: array 'Im_Map' declared here
+   22 | extern double Im_Map[CONSTELL_SIZE];                  /* Im. part of symbols. */
+      | ^
+mimomap.c:70:2: warning: array index 12 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   70 |  Im_Map[12]= -1.0;
+      |  ^      ~~
+./mimoext.h:22:1: note: array 'Im_Map' declared here
+   22 | extern double Im_Map[CONSTELL_SIZE];                  /* Im. part of symbols. */
+      | ^
+mimomap.c:71:2: warning: array index 13 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   71 |  Im_Map[13]= -3.0;
+      |  ^      ~~
+./mimoext.h:22:1: note: array 'Im_Map' declared here
+   22 | extern double Im_Map[CONSTELL_SIZE];                  /* Im. part of symbols. */
+      | ^
+mimomap.c:72:2: warning: array index 14 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   72 |  Im_Map[14]= -3.0;
+      |  ^      ~~
+./mimoext.h:22:1: note: array 'Im_Map' declared here
+   22 | extern double Im_Map[CONSTELL_SIZE];                  /* Im. part of symbols. */
+      | ^
+mimomap.c:73:2: warning: array index 15 is past the end of the array (that has type 'double[8]') [-Warray-bounds]
+   73 |  Im_Map[15]= -1.0;
+      |  ^      ~~
+./mimoext.h:22:1: note: array 'Im_Map' declared here
+   22 | extern double Im_Map[CONSTELL_SIZE];                  /* Im. part of symbols. */
+      | ^
+16 warnings generated.
+gcc -O    -c -o mimoinit.o mimoinit.c
+gcc -O    -c -o mimock.o mimock.c
+gcc -O    -c -o mimosim.o mimosim.c
+gcc -O    -c -o mimosym.o mimosym.c
+gcc -O    -c -o mimoutil.o mimoutil.c
+gcc -O    -c -o mimopost.o mimopost.c
+gcc -O  mimomain.o mimopre.o mimomap.o mimoinit.o mimock.o mimosim.o mimosym.o mimoutil.o mimopost.o -lm -o mimo
