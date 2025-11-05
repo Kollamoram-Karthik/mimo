@@ -172,15 +172,16 @@ set title "8-QAM in Rayleigh Flat Fading (Nr=1, Nt=2)" font "Arial,18"
 # Legend
 set key right top box
 
-# Plot data - matching Step 1 style (all black lines)
+# Plot data with different line styles for clarity
 plot "assignment_results/step2/case_c_nr1_nt2/simulation_data/qam8r1t2chser.dat" \
-     using 1:2 with lines linewidth 2.5 linecolor rgb "black" \
+     using 1:2 with lines linewidth 3 linecolor rgb "blue" dashtype 2 \
      title "1- Chernoff bound", \
      "assignment_results/step2/case_c_nr1_nt2/simulation_data/qam8r1t2thser.dat" \
-     using 1:2 with lines linewidth 2.5 linecolor rgb "black" \
+     using 1:2 with lines linewidth 3 linecolor rgb "red" dashtype 1 \
      title "2- Union bound", \
      "assignment_results/step2/case_c_nr1_nt2/simulation_data/qam8r1t2simser.dat" \
-     using 1:2 with lines linewidth 2.5 linecolor rgb "black" \
+     using 1:2 with linespoints linewidth 2.5 linecolor rgb "black" \
+     pointtype 7 pointsize 1.2 pointinterval 1 \
      title "3- Simulation"
 
 # Also create EPS version for high quality

@@ -15,16 +15,17 @@ set title "8-QAM in Rayleigh Flat Fading (Nr=2, Nt=2)" font "Arial,18"
 # Legend
 set key right top box
 
-# Plot data - matching Step 1 style (all black lines)
+# Plot data with different line styles for clarity
 plot "assignment_results/step2/case_d_nr2_nt2/simulation_data/qam8r2t2chser.dat" \
-     using 1:2 with lines linewidth 2.5 linecolor rgb "blue" \
-     title "Chernoff bound", \
+     using 1:2 with lines linewidth 3 linecolor rgb "blue" dashtype 2 \
+     title "1- Chernoff bound", \
      "assignment_results/step2/case_d_nr2_nt2/simulation_data/qam8r2t2thser.dat" \
-     using 1:2 with lines linewidth 2.5 linecolor rgb "red" \
-     title "Union bound", \
+     using 1:2 with lines linewidth 3 linecolor rgb "red" dashtype 1 \
+     title "2- Union bound", \
      "assignment_results/step2/case_d_nr2_nt2/simulation_data/qam8r2t2simser.dat" \
-     using 1:2 with linespoints linewidth 2.5 pointtype 7 pointsize 1.5 linecolor rgb "black" \
-     title "Simulation"
+     using 1:2 with linespoints linewidth 2.5 linecolor rgb "black" \
+     pointtype 7 pointsize 1.2 pointinterval 1 \
+     title "3- Simulation"
 
 # Also create EPS version for high quality
 set terminal postscript eps enhanced color size 6,4 font 'Arial,14'

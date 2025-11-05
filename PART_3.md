@@ -1,269 +1,122 @@
-# Part 3: Code Modifications# Part 3: Code Modifications for 8-QAM# Part 3: Code Modifications for 8-QAM# Part 3: Code Modifications for 8-QAM
+# Part 3: Code Modifications for 8-QAM# Part 3: Code Modifications for 8-QAM# Part 3: Code Modifications for 8-QAM
 
+I modified 4 files to add 8-QAM modulation with minimum squared Euclidean distance = 4.I modified 5 files to add 8-QAM modulation with minimum squared Euclidean distance = 4.
 
+## Files Modified## Files Modified
 
-I added 8-QAM modulation support to the MIMO simulator. Modified 4 files with changes clearly marked using comment blocks:
+1. **mimotype.h** - Added QAM8 constant1. **mimotype.h** - Added QAM8 constant## Summary
+2. **mimomap.c** - Implemented 8-QAM constellation mapping  2. **mimomap.c** - Implemented 8-QAM constellation mapping
+3. **mimock.c** - Added validation3. **mimock.c** - Added validationFour files were modified:
+4. **mimotheory_ser.c** - Added theoretical bounds4. **mimotheory_ser.c** - Added theoretical bounds1. **mimotype.h** - Added QAM8 constant
+5. **mimomap.c** - Implemented 8-QAM constellation mapping
 
+All changes are marked in code with:
 
-
-```cI modified 4 files to add 8-QAM modulation with minimum squared Euclidean distance = 4.I modified 5 files to add 8-QAM modulation with minimum squared Euclidean distance = 4.
+```cAll
 
 /****** MODIFICATION START: Description (Nov 2025) ******/
 
-// my changes here
+// modified code```c4.
 
 /****** MODIFICATION END ******/
 
-```## Files Modified## Files Modified
+```/****** MODIFICATION START: Description (Nov 2025) ******/
 
 
+
+---// modified codeAll modifications are clearly marked in the code with comment blocks:
+
+
+
+## 1. mimotype.h/****** MODIFICATION END ******/
+
+
+
+**Change:** Added QAM8 definition``````c---
+
+
+
+**Line 22:**
+
+```c
+
+#define QAM8 4    /* Constellation number. */---/****** MODIFICATION START: Description (Nov 2025) ******/
+
+```
 
 ---
 
+## 1. mimotype.h// my changes here## File 1: mimotype.h
 
+## 2. mimomap.c
 
-## 1. mimotype.h1. **mimotype.h** - Added QAM8 constant1. **mimotype.h** - Added QAM8 constant## Summary
+### Change A: Modified Get_Map()
 
+Added QAM8 case:**Change:** Added QAM8 definition/****** MODIFICATION END ******/
 
-
-**What changed:** Added QAM8 constant definition2. **mimomap.c** - Implemented 8-QAM constellation mapping  2. **mimomap.c** - Implemented 8-QAM constellation mapping
-
-
-
-```c3. **mimock.c** - Added validation3. **mimock.c** - Added validationFour files were modified:
-
-#define QAM8 4    /* Constellation number. */
-
-```4. **mimotheory_ser.c** - Added theoretical bounds4. **mimotheory_ser.c** - Added theoretical bounds1. **mimotype.h** - Added QAM8 constant
-
-
-
-This defines 8-QAM as constellation type 4 (0-3 were already used).5. **mimomap.c** - Implemented 8-QAM constellation mapping
-
-
-
----All changes are marked in code with:
-
-
-
-## 2. mimomap.c```cAll changes are marked in code with:3. **mimock.c** - Added validation for QAM8
-
-
-
-**Three changes made:**/****** MODIFICATION START: Description (Nov 2025) ******/
-
-
-
-### a) Updated Get_Map() function// modified code```c4.
-
-
-
-Added QAM8 case to call the new mapping functions:/****** MODIFICATION END ******/
-
-
-
-```c```/****** MODIFICATION START: Description (Nov 2025) ******/
+```c
 
 else if(CONSTELL == QAM8)
 
 {
 
-  Re_8_QAM();
+  Re_8_QAM();**Line 22:**```**Location:** Line 19  
 
-  Im_8_QAM();---// modified codeAll modifications are clearly marked in the code with comment blocks:
+  Im_8_QAM();
 
-}
+}```c
 
 ```
 
+#define QAM8 4    /* Constellation number. */**Purpose:** Define the 8-QAM constellation identifier
 
+### Change B: Added Re_8_QAM() function
 
-### b) Added Re_8_QAM() function## 1. mimotype.h/****** MODIFICATION END ******/
+Real parts of 8-QAM constellation:```
 
+```c
 
-
-Defines real parts of 8-QAM constellation:
-
-
-
-```c**Change:** Added QAM8 definition``````c---
-
-Re_Map[0]=   1.0;           Re_Map[4]=   1.0 + sqrt(3.0);  // 2.732
+Re_Map[0]=   1.0;           Re_Map[4]=   1.0 + sqrt(3.0);  // 2.732---
 
 Re_Map[1]=   1.0;           Re_Map[5]=   0.0;
 
-Re_Map[2]=  -1.0;           Re_Map[6]=  -1.0 - sqrt(3.0);  // -2.732
-
-Re_Map[3]=  -1.0;           Re_Map[7]=   0.0;**Line 22:**
-
-```
-
-```c
-
-### c) Added Im_8_QAM() function
-
-#define QAM8 4    /* Constellation number. */---/****** MODIFICATION START: Description (Nov 2025) ******/
-
-Defines imaginary parts:
-
-```
-
-```c
-
-Im_Map[0]=   1.0;           Im_Map[4]=   0.0;
-
-Im_Map[1]=  -1.0;           Im_Map[5]=   1.0 + sqrt(3.0);  // 2.732
-
-Im_Map[2]=   1.0;           Im_Map[6]=   0.0;---
-
-Im_Map[3]=  -1.0;           Im_Map[7]=  -1.0 - sqrt(3.0);  // -2.732
-
-```## 1. mimotype.h// my changes here## File 1: mimotype.h
-
-
-
-**Constellation points:**## 2. mimomap.c
-
-- 4 diagonal: (±1, ±1)  
-
-- 4 on axes: (±2.732, 0) and (0, ±2.732)
-
-- Forms cross/diamond shape with d²_min = 4 ✓
-
-### Change A: Modified Get_Map()
-
----
-
-Added QAM8 case:**Change:** Added QAM8 definition/****** MODIFICATION END ******/
-
-## 3. mimock.c
-
-```c
-
-**What changed:** Added QAM8 validation
-
-else if(CONSTELL == QAM8)
-
-```c
-
-else if((CONSTELL == QAM8) && (CONSTELL_SIZE != 8)){
-
-  Error_Mes(2);
-
-```  Re_8_QAM();**Line 22:**```**Location:** Line 19  
-
-
-
-Ensures CONSTELL_SIZE is 8 when using QAM8.  Im_8_QAM();
-
-
-
----}```c
-
-
-
-## 4. mimotheory_ser.c```
-
-
-
-**Six changes for theoretical bounds:**#define QAM8 4    /* Constellation number. */**Purpose:** Define the 8-QAM constellation identifier
-
-
-
-### a) Added QAM8 constant### Change B: Added Re_8_QAM() function
-
-```c
-
-#define QAM8 4Real parts of 8-QAM constellation:```
-
-```
-
-```c
-
-### b) Updated Get_Map() function
-
-Added QAM8 case (same as in mimomap.c)Re_Map[0]=   1.0;           Re_Map[4]=   1.0 + sqrt(3.0);  // 2.732---
-
-
-
-### c) Added Get_Re_8_QAM_Map() functionRe_Map[1]=   1.0;           Re_Map[5]=   0.0;
-
-Real parts for theory calculations (identical to Re_8_QAM)
-
 Re_Map[2]=  -1.0;           Re_Map[6]=  -1.0 - sqrt(3.0);  // -2.732---
 
-### d) Added Get_Im_8_QAM_Map() function
+Re_Map[3]=  -1.0;           Re_Map[7]=   0.0;
 
-Imaginary parts for theory calculations (identical to Im_8_QAM)Re_Map[3]=  -1.0;           Re_Map[7]=   0.0;
+```### Change:
 
 
 
-### e) Updated Open_File() function```### Change:
+### Change C: Added Im_8_QAM() function## 2. mimomap.c
 
-Added 4 file paths for Union bound data:
-
-```c
-
-qam8r1t1thser.dat  // 1x1 config
-
-qam8r2t1thser.dat  // 2x1 config### Change C: Added Im_8_QAM() function## 2. mimomap.c
-
-qam8r1t2thser.dat  // 1x2 config
-
-qam8r2t2thser.dat  // 2x2 configImaginary parts:
-
-```
+Imaginary parts:
 
 ```c## Change 1: mimotype.h```c
 
-### f) Updated Open_Chernoff() function
+Im_Map[0]=   1.0;           Im_Map[4]=   0.0;
 
-Added 4 file paths for Chernoff bound data:Im_Map[0]=   1.0;           Im_Map[4]=   0.0;
+Im_Map[1]=  -1.0;           Im_Map[5]=   1.0 + sqrt(3.0);  // 2.732### Change A: Modified Get_Map()
+
+Im_Map[2]=   1.0;           Im_Map[6]=   0.0;
+
+Im_Map[3]=  -1.0;           Im_Map[7]=  -1.0 - sqrt(3.0);  // -2.732Added QAM8 case:// BEFORE: Only QAM16, PSK8, BPSK, QPSK were defined
+
+```
 
 ```c
 
-qam8r1t1chser.datIm_Map[1]=  -1.0;           Im_Map[5]=   1.0 + sqrt(3.0);  // 2.732### Change A: Modified Get_Map()
+**8-QAM Constellation Points:**
 
-qam8r2t1chser.dat
+```else if(CONSTELL == QAM8)**What I did:** Added a new constant to define 8-QAM modulation
 
-qam8r1t2chser.datIm_Map[2]=   1.0;           Im_Map[6]=   0.0;
+(1,1)  (1,-1)  (-1,1)  (-1,-1)  (2.732,0)  (0,2.732)  (-2.732,0)  (0,-2.732)
 
-qam8r2t2chser.dat
+```{
 
-```Im_Map[3]=  -1.0;           Im_Map[7]=  -1.0 - sqrt(3.0);  // -2.732Added QAM8 case:// BEFORE: Only QAM16, PSK8, BPSK, QPSK were defined
+Forms cross/diamond shape with d²_min = 4 ✓
 
-
-
----```
-
-
-
-## Verification```c
-
-
-
-**Minimum distance check:****8-QAM Constellation Points:**
-
-- Distance from (1,1) to (1,-1): √[(0)² + (2)²] = 2, so d²_min = 4 ✓
-
-- Distance from (1,1) to (2.732,0): √[(1.732)² + (1)²] = 2, so d²_min = 4 ✓```else if(CONSTELL == QAM8)**What I did:** Added a new constant to define 8-QAM modulation
-
-
-
-**All simulations tested and working:**(1,1)  (1,-1)  (-1,1)  (-1,-1)  (2.732,0)  (0,2.732)  (-2.732,0)  (0,-2.732)
-
-- ✅ Case (a): 1x1, 11 SNR points
-
-- ✅ Case (b): 2x1, 11 SNR points  ```{
-
-- ✅ Case (c): 1x2, 11 SNR points
-
-- ✅ Case (d): 2x2, 11 SNR pointsForms cross/diamond shape with d²_min = 4 ✓
-
-
-
-**Total changes:** 4 files, 12 marked sections, ~150 lines of code added.  Re_8_QAM();// AFTER: Added QAM8 definition
-
+  Re_8_QAM();// AFTER: Added QAM8 definition
 
 ---
 
@@ -279,7 +132,7 @@ qam8r2t2chser.dat
 
 Added check in Ck_Constell_Number():
 
-```c```
+``c``
 
 else if((CONSTELL == QAM8) && (CONSTELL_SIZE != 8))
 
@@ -1161,10 +1014,10 @@ P_avg = (4×(1²+1²) + 4×2.732²) / 8
 ### Simulation Verification
 
 All simulations completed successfully with:
-- ✅ Correct constellation points verified in logs
-- ✅ SER decreases monotonically with SNR
-- ✅ Simulation results lie between Union and Chernoff bounds
-- ✅ All plots generated (PNG + EPS formats)
+- Correct constellation points verified in logs
+- SER decreases monotonically with SNR
+- Simulation results lie between Union and Chernoff bounds
+- All plots generated (PNG + EPS formats)
 
 ---
 

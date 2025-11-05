@@ -1,10 +1,10 @@
 # MIMO Simulation Assignment
 
-**Student Name**: Kollamoram Karthik
-**Roll Number**: 220538
-**Course**: EE622
-**Instructor**: Kasturi Vasudevan
-**Date**: 5th November, 2025
+* **Student Name**: Kollamoram Karthik
+* **Roll Number**: 220538
+* **Course**: EE622
+* **Instructor**: Kasturi Vasudevan
+* **Date**: 5th November, 2025
 
 ---
 

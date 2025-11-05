@@ -25,13 +25,13 @@
 #define BITS_PER_SYM 3
 #define CONSTELL_SIZE 8
 #define NUM_TX 2
-#define NUM_RX 2
+#define NUM_RX 1
 #define NUM_VEC 64
 /******************************************************************************/
 /*                  GAUSSIAN NOISE GENERATOR PARAMETERS.
 *******************************************************************************/
 #define FADE_VAR 0.50                         /* Fade variance per dimension. */
-#define SNR 27.5
+#define SNR 40
 #define MAX_SNR 100.0                                   /* Max. value of SNR. */
 #define PN_SIZE 3                 /* Size of array which stores the PN value. */
 #define NVALSIZE 4
